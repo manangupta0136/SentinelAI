@@ -1,0 +1,640 @@
+[
+  {
+    "event_id": "d44038c588554142",
+    "fault_type": "tunnel_failure",
+    "severity": 0.35500893622386526,
+    "duration_ticks": 7,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-4",
+      "mpls-hub-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.5359043803857456,
+      "duration_range_ticks": 64.02718532802265,
+      "latency_increase_range": 3.4401494414390745,
+      "jitter_increase_range": 6.299564646713266,
+      "loss_increase_range": 0.07457000017195374,
+      "throughput_reduction_range": 0.12914157390817485
+    }
+  },
+  {
+    "event_id": "9cd80a15be4147b7",
+    "fault_type": "tunnel_failure",
+    "severity": 0.7232168116482882,
+    "duration_ticks": 38,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "datacenter-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.23620504416647375,
+      "duration_range_ticks": 85.52415894007578,
+      "latency_increase_range": 3.7593800128380583,
+      "jitter_increase_range": 8.552830785339161,
+      "loss_increase_range": 0.009074737755017551,
+      "throughput_reduction_range": 0.354193072330363
+    }
+  },
+  {
+    "event_id": "a900cb0bace24cd7",
+    "fault_type": "congestion",
+    "severity": 0.32588859067523607,
+    "duration_ticks": 5,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-2",
+      "datacenter-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-2",
+      "branch-1_to_branch-2"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.7861729539004669,
+      "duration_range_ticks": 25.102681402174653,
+      "bandwidth_reduction_range": 0.3118169273358964,
+      "latency_multiplier_range": 2.6220442185746715,
+      "jitter_multiplier_range": 7.785695892224648,
+      "loss_increase_range": 0.03146875783820372
+    }
+  },
+  {
+    "event_id": "aed7ebaea21040b8",
+    "fault_type": "congestion",
+    "severity": 0.5157325360977305,
+    "duration_ticks": 120,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-2",
+      "mpls-hub-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4",
+      "branch-1_to_branch-2"
+    ],
+    "recovery_method": "manual_traffic_engineering",
+    "params": {
+      "severity_range": 0.43072235236885276,
+      "duration_range_ticks": 12.595760582781176,
+      "bandwidth_reduction_range": 0.36580242218910164,
+      "latency_multiplier_range": 1.6044123780454478,
+      "jitter_multiplier_range": 3.8487617722176104,
+      "loss_increase_range": 0.04519577981890792
+    }
+  },
+  {
+    "event_id": "d60f48b864654d46",
+    "fault_type": "mpls_failure",
+    "severity": 0.31235711849011244,
+    "duration_ticks": 24,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "mpls-hub-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4"
+    ],
+    "recovery_method": "manual",
+    "params": {
+      "severity_range": 0.8741331601897152,
+      "duration_range_ticks": 27.146775428866256,
+      "label_switching_delay_multiplier": 3.0990836218020577,
+      "lsp_degradation": 0.46702117749891925,
+      "vpn_route_withdrawal": 0.15679190776017077,
+      "recovery_methods": [
+        "automatic_lsp_reroute",
+        "manual"
+      ]
+    }
+  },
+  {
+    "event_id": "1b5eded2c6e240c6",
+    "fault_type": "bgp_flap",
+    "severity": 0.6187016682104098,
+    "duration_ticks": 5,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-3"
+    ],
+    "affected_links": [
+      "mpls-hub-1_to_branch-3",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "manual_route_policy_change",
+    "params": {
+      "severity_range": 0.8435112952791917,
+      "duration_range_ticks": 74.86114069248583,
+      "flap_interval_range_ticks": 3.6407032572788034,
+      "prefix_withdrawal_rate": 0.17895856425344642,
+      "route_convergence_delay_ticks": 4.023558906478895
+    }
+  },
+  {
+    "event_id": "9b43390ec1484384",
+    "fault_type": "packet_loss_escalation",
+    "severity": 0.483353506270048,
+    "duration_ticks": 58,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "datacenter-1",
+      "branch-2",
+      "branch-3"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "branch-1_to_branch-2",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.44426382524239744,
+      "duration_range_ticks": 71.18970537006122,
+      "loss_base_increase": 0.04884070181222159,
+      "loss_escalation_rate": 0.002833948766807251,
+      "recovery_methods": [
+        "automatic",
+        "manual_interface_clean"
+      ]
+    }
+  },
+  {
+    "event_id": "e781c47bd24c4595",
+    "fault_type": "tunnel_failure",
+    "severity": 0.6003182510179587,
+    "duration_ticks": 13,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-4",
+      "branch-1",
+      "datacenter-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-4",
+      "branch-1_to_branch-2",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.8667658276421022,
+      "duration_range_ticks": 15.24663219261832,
+      "latency_increase_range": 6.402222410282678,
+      "jitter_increase_range": 11.365194925371789,
+      "loss_increase_range": 0.011954906706356794,
+      "throughput_reduction_range": 0.4818772766544409
+    }
+  },
+  {
+    "event_id": "fba6e979df854b89",
+    "fault_type": "bgp_flap",
+    "severity": 0.6466978040418434,
+    "duration_ticks": 29,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "mpls-hub-1",
+      "branch-3"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.6307591080048557,
+      "duration_range_ticks": 15.356848679144312,
+      "flap_interval_range_ticks": 1.8563848232614202,
+      "prefix_withdrawal_rate": 0.37769678947115654,
+      "route_convergence_delay_ticks": 4.2999435575212015
+    }
+  },
+  {
+    "event_id": "367a7d6a5dd0432a",
+    "fault_type": "bgp_flap",
+    "severity": 0.3834026400359693,
+    "duration_ticks": 10,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "mpls-hub-1",
+      "branch-2"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4",
+      "branch-1_to_branch-2"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.8441040308597731,
+      "duration_range_ticks": 60.34793536615456,
+      "flap_interval_range_ticks": 3.604400066804892,
+      "prefix_withdrawal_rate": 0.21259337972885556,
+      "route_convergence_delay_ticks": 4.494979978758941
+    }
+  },
+  {
+    "event_id": "1028897975a64c87",
+    "fault_type": "congestion",
+    "severity": 0.5094580249570233,
+    "duration_ticks": 24,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-1"
+    ],
+    "affected_links": [
+      "mpls-hub-1_to_branch-1",
+      "branch-1_to_branch-2"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.5534817452659,
+      "duration_range_ticks": 32.25743793715449,
+      "bandwidth_reduction_range": 0.6689121818118257,
+      "latency_multiplier_range": 3.7431140048087848,
+      "jitter_multiplier_range": 4.14259498480132,
+      "loss_increase_range": 0.03554723553427761
+    }
+  },
+  {
+    "event_id": "b8984348d2334a05",
+    "fault_type": "bgp_flap",
+    "severity": 0.3991708873086899,
+    "duration_ticks": 9,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-4",
+      "branch-2"
+    ],
+    "affected_links": [
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-4",
+      "branch-1_to_branch-2",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.7179806598053269,
+      "duration_range_ticks": 32.09384119052691,
+      "flap_interval_range_ticks": 1.094403764927249,
+      "prefix_withdrawal_rate": 0.45559331443227297,
+      "route_convergence_delay_ticks": 14.15045753794147
+    }
+  },
+  {
+    "event_id": "5a2c5ae60d38408f",
+    "fault_type": "packet_loss_escalation",
+    "severity": 0.6714032710631004,
+    "duration_ticks": 13,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-4",
+      "branch-1",
+      "branch-2"
+    ],
+    "affected_links": [
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-4",
+      "branch-1_to_branch-2",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "manual_interface_clean",
+    "params": {
+      "severity_range": 0.36515464822932725,
+      "duration_range_ticks": 56.324799694707195,
+      "loss_base_increase": 0.060805622192910205,
+      "loss_escalation_rate": 0.013172722930381384,
+      "recovery_methods": [
+        "automatic",
+        "manual_interface_clean"
+      ]
+    }
+  },
+  {
+    "event_id": "871bd792b4154499",
+    "fault_type": "tunnel_failure",
+    "severity": 0.3352481158472416,
+    "duration_ticks": 120,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-4",
+      "branch-3",
+      "branch-2"
+    ],
+    "affected_links": [
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4",
+      "branch-1_to_branch-2",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "manual_tunnel_rekey",
+    "params": {
+      "severity_range": 0.27805857911558884,
+      "duration_range_ticks": 68.81565295821089,
+      "latency_increase_range": 6.844150489509839,
+      "jitter_increase_range": 2.7780042755922416,
+      "loss_increase_range": 0.024744048965194793,
+      "throughput_reduction_range": 0.2296640802235119
+    }
+  },
+  {
+    "event_id": "7f6a332d30474105",
+    "fault_type": "cpu_overload",
+    "severity": 0.4071212203071271,
+    "duration_ticks": 23,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "mpls-hub-1",
+      "branch-1",
+      "branch-4"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4",
+      "branch-1_to_branch-2",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "manual_reload",
+    "params": {
+      "severity_range": 0.6159620236274278,
+      "duration_range_ticks": 26.181294203013543,
+      "cpu_increase_range": 24.841634653054303,
+      "temp_increase_coefficient": 2.244470467268802,
+      "process_spike_count": 33.34161934838083,
+      "interrupt_spike_rate": 7152.923582643991,
+      "recovery_methods": [
+        "automatic_process_termination",
+        "manual_reload"
+      ]
+    }
+  },
+  {
+    "event_id": "3dc934aa41a44820",
+    "fault_type": "controller_error",
+    "severity": 0.5580399610352995,
+    "duration_ticks": 26,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-1"
+    ],
+    "affected_links": [
+      "mpls-hub-1_to_branch-1",
+      "branch-1_to_branch-2"
+    ],
+    "recovery_method": "manual_config_push",
+    "params": {
+      "severity_range": 0.5878217191648025,
+      "duration_range_ticks": 7.5195028034960245,
+      "misconfiguration_impact": 0.5683019241801325,
+      "policy_violation_rate": 0.3163415692968247,
+      "intent_mismatch_probability": 0.5785487795774032,
+      "recovery_methods": [
+        "automatic_rollback",
+        "manual_config_push"
+      ]
+    }
+  },
+  {
+    "event_id": "20b9988337a5425f",
+    "fault_type": "bgp_flap",
+    "severity": 0.36582514914989883,
+    "duration_ticks": 84,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-4"
+    ],
+    "affected_links": [
+      "mpls-hub-1_to_branch-4",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.53944845731931,
+      "duration_range_ticks": 47.71635934582583,
+      "flap_interval_range_ticks": 1.2787252306977157,
+      "prefix_withdrawal_rate": 0.11676568910468133,
+      "route_convergence_delay_ticks": 8.426846820118783
+    }
+  },
+  {
+    "event_id": "3116f362e4d34f78",
+    "fault_type": "bgp_flap",
+    "severity": 0.5394222307285121,
+    "duration_ticks": 5,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-2",
+      "mpls-hub-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4",
+      "branch-1_to_branch-2"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.8193285719960185,
+      "duration_range_ticks": 45.67463650125194,
+      "flap_interval_range_ticks": 2.4031961530729036,
+      "prefix_withdrawal_rate": 0.32718025873817147,
+      "route_convergence_delay_ticks": 11.071304797567599
+    }
+  },
+  {
+    "event_id": "169780426b1d4ee9",
+    "fault_type": "tunnel_failure",
+    "severity": 0.3192748119948575,
+    "duration_ticks": 120,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "datacenter-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.2659109008819828,
+      "duration_range_ticks": 88.27606166070808,
+      "latency_increase_range": 2.5861546142034637,
+      "jitter_increase_range": 14.573505416126507,
+      "loss_increase_range": 0.010791549450560116,
+      "throughput_reduction_range": 0.617338206473866
+    }
+  },
+  {
+    "event_id": "037765e975a9424f",
+    "fault_type": "packet_loss_escalation",
+    "severity": 0.34243369303728066,
+    "duration_ticks": 49,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "mpls-hub-1",
+      "datacenter-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4"
+    ],
+    "recovery_method": "automatic",
+    "params": {
+      "severity_range": 0.80198347649218,
+      "duration_range_ticks": 31.249171389452556,
+      "loss_base_increase": 0.052688263676134765,
+      "loss_escalation_rate": 0.004074686548307933,
+      "recovery_methods": [
+        "automatic",
+        "manual_interface_clean"
+      ]
+    }
+  },
+  {
+    "event_id": "e0129ca3e562447a",
+    "fault_type": "controller_error",
+    "severity": 0.5166018375155895,
+    "duration_ticks": 5,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-2"
+    ],
+    "affected_links": [
+      "mpls-hub-1_to_branch-2",
+      "branch-1_to_branch-2"
+    ],
+    "recovery_method": "automatic_rollback",
+    "params": {
+      "severity_range": 0.2852590234288493,
+      "duration_range_ticks": 25.069923525628894,
+      "misconfiguration_impact": 0.3722417892912583,
+      "policy_violation_rate": 0.1444602175907564,
+      "intent_mismatch_probability": 0.5913341398022594,
+      "recovery_methods": [
+        "automatic_rollback",
+        "manual_config_push"
+      ]
+    }
+  },
+  {
+    "event_id": "a60f435700dd42ba",
+    "fault_type": "tunnel_failure",
+    "severity": 0.3294243127629176,
+    "duration_ticks": 9,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "datacenter-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1"
+    ],
+    "recovery_method": "manual_tunnel_rekey",
+    "params": {
+      "severity_range": 0.37477756406539114,
+      "duration_range_ticks": 50.76894478023919,
+      "latency_increase_range": 3.1366802495225112,
+      "jitter_increase_range": 11.546652801724942,
+      "loss_increase_range": 0.07660461508900152,
+      "throughput_reduction_range": 0.4245001763189408
+    }
+  },
+  {
+    "event_id": "4e286104b6cc4d6e",
+    "fault_type": "mpls_failure",
+    "severity": 0.3402879457029857,
+    "duration_ticks": 24,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "branch-1",
+      "mpls-hub-1",
+      "datacenter-1"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4",
+      "branch-1_to_branch-2"
+    ],
+    "recovery_method": "automatic_lsp_reroute",
+    "params": {
+      "severity_range": 0.8035543222706727,
+      "duration_range_ticks": 44.147451795201256,
+      "label_switching_delay_multiplier": 4.489834582504034,
+      "lsp_degradation": 0.6766492193310794,
+      "vpn_route_withdrawal": 0.126426304063464,
+      "recovery_methods": [
+        "automatic_lsp_reroute",
+        "manual"
+      ]
+    }
+  },
+  {
+    "event_id": "475e8295feef4b50",
+    "fault_type": "memory_exhaustion",
+    "severity": 0.6962532364030989,
+    "duration_ticks": 13,
+    "remaining_ticks": 0,
+    "affected_devices": [
+      "mpls-hub-1",
+      "branch-4"
+    ],
+    "affected_links": [
+      "datacenter-1_to_mpls-hub-1",
+      "mpls-hub-1_to_branch-1",
+      "mpls-hub-1_to_branch-2",
+      "mpls-hub-1_to_branch-3",
+      "mpls-hub-1_to_branch-4",
+      "branch-3_to_branch-4"
+    ],
+    "recovery_method": "automatic_gc",
+    "params": {
+      "severity_range": 0.6597247587903108,
+      "duration_range_ticks": 47.11992183983734,
+      "memory_increase_range": 55.77709938869863,
+      "process_leak_count": 94.31336559141398
+    }
+  }
+]

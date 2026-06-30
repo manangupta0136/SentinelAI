@@ -1,0 +1,29 @@
+# Simulation engine configuration.
+
+simulation:
+  total_ticks: 1440
+  tick_interval_seconds: 60
+  random_seed: 42
+  realtime_mode: false
+  realtime_speedup: 60.0
+
+output:
+  telemetry_csv: output/telemetry.csv
+  telemetry_json: output/telemetry.json
+  ground_truth_csv: output/ground_truth.csv
+  fault_events_json: output/fault_events.json
+  simulation_summary_json: output/simulation_summary.json
+  metadata_json: output/metadata.json
+
+logging:
+  level: INFO
+  file: output/simulation.log
+  max_bytes: 10485760
+  backup_count: 5
+  format: "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
+
+visualization:
+  enabled: false
+  topology_plot: output/topology.png
+  telemetry_dashboard: output/telemetry_dashboard.png
+  fault_timeline: output/fault_timeline.png

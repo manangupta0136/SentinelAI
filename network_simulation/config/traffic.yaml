@@ -1,0 +1,166 @@
+# Traffic generation configuration.
+
+traffic:
+  applications:
+    - name: erp
+      description: Enterprise resource planning traffic (SAP/Oracle)
+      base_bandwidth_mbps: 50.0
+      burst_factor: 2.5
+      burst_probability: 0.15
+      priority: high
+      time_of_day_profile:
+        - hour: 0
+          multiplier: 0.05
+        - hour: 6
+          multiplier: 0.20
+        - hour: 8
+          multiplier: 0.85
+        - hour: 10
+          multiplier: 1.00
+        - hour: 12
+          multiplier: 0.70
+        - hour: 13
+          multiplier: 0.90
+        - hour: 15
+          multiplier: 1.00
+        - hour: 17
+          multiplier: 0.60
+        - hour: 20
+          multiplier: 0.15
+        - hour: 23
+          multiplier: 0.08
+      cpu_load_factor: 0.15
+      memory_load_factor: 0.10
+      latency_sensitivity_ms: 50.0
+
+    - name: database
+      description: Database replication and query traffic
+      base_bandwidth_mbps: 80.0
+      burst_factor: 3.0
+      burst_probability: 0.20
+      priority: high
+      time_of_day_profile:
+        - hour: 0
+          multiplier: 0.30
+        - hour: 4
+          multiplier: 0.50
+        - hour: 8
+          multiplier: 0.90
+        - hour: 10
+          multiplier: 1.00
+        - hour: 12
+          multiplier: 0.80
+        - hour: 14
+          multiplier: 0.95
+        - hour: 17
+          multiplier: 0.75
+        - hour: 20
+          multiplier: 0.40
+        - hour: 23
+          multiplier: 0.35
+      cpu_load_factor: 0.25
+      memory_load_factor: 0.20
+      latency_sensitivity_ms: 10.0
+
+    - name: video_conferencing
+      description: Video conferencing traffic (Zoom/Teams)
+      base_bandwidth_mbps: 20.0
+      burst_factor: 1.5
+      burst_probability: 0.10
+      priority: medium
+      time_of_day_profile:
+        - hour: 0
+          multiplier: 0.01
+        - hour: 8
+          multiplier: 0.30
+        - hour: 9
+          multiplier: 0.80
+        - hour: 11
+          multiplier: 0.95
+        - hour: 12
+          multiplier: 0.50
+        - hour: 13
+          multiplier: 0.70
+        - hour: 15
+          multiplier: 0.90
+        - hour: 17
+          multiplier: 0.40
+        - hour: 20
+          multiplier: 0.10
+        - hour: 23
+          multiplier: 0.02
+      cpu_load_factor: 0.10
+      memory_load_factor: 0.08
+      latency_sensitivity_ms: 150.0
+
+    - name: web_traffic
+      description: General web browsing and HTTP/S traffic
+      base_bandwidth_mbps: 30.0
+      burst_factor: 4.0
+      burst_probability: 0.25
+      priority: low
+      time_of_day_profile:
+        - hour: 0
+          multiplier: 0.10
+        - hour: 7
+          multiplier: 0.40
+        - hour: 9
+          multiplier: 0.80
+        - hour: 11
+          multiplier: 0.90
+        - hour: 12
+          multiplier: 0.70
+        - hour: 14
+          multiplier: 0.85
+        - hour: 16
+          multiplier: 0.95
+        - hour: 18
+          multiplier: 0.60
+        - hour: 21
+          multiplier: 0.35
+        - hour: 23
+          multiplier: 0.15
+      cpu_load_factor: 0.08
+      memory_load_factor: 0.05
+      latency_sensitivity_ms: 500.0
+
+    - name: background_sync
+      description: Background synchronization and update traffic
+      base_bandwidth_mbps: 10.0
+      burst_factor: 5.0
+      burst_probability: 0.05
+      priority: low
+      time_of_day_profile:
+        - hour: 0
+          multiplier: 0.80
+        - hour: 2
+          multiplier: 1.00
+        - hour: 5
+          multiplier: 0.60
+        - hour: 8
+          multiplier: 0.10
+        - hour: 12
+          multiplier: 0.15
+        - hour: 17
+          multiplier: 0.20
+        - hour: 20
+          multiplier: 0.30
+        - hour: 22
+          multiplier: 0.60
+        - hour: 23
+          multiplier: 0.70
+      cpu_load_factor: 0.05
+      memory_load_factor: 0.03
+      latency_sensitivity_ms: 2000.0
+
+  office_hours:
+    start_hour: 8
+    end_hour: 18
+    peak_start_hour: 10
+    peak_end_hour: 15
+    weekend_multiplier: 0.30
+
+  per_device_traffic_weights:
+    datacenter: 2.0
+    mpls_hub: 1.5
+    branch: 1.0

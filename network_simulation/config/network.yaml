@@ -1,0 +1,205 @@
+# Network topology configuration for SentinelAI simulation.
+# Defines device roles, link types, correlation coefficients, and topology layout.
+
+topology:
+  nodes:
+    - name: datacenter-1
+      role: datacenter
+      device_type: nexus_9000
+      location: us-east-1
+      base_cpu: 35.0
+      base_memory: 45.0
+      base_process_count: 120
+      base_interrupt_rate: 5000.0
+      cpu_temp_alpha: 2.5
+      memory_gamma_process: 0.15
+      memory_gamma_cpu: 0.10
+      interrupt_beta: 0.008
+      os: nxos
+      software_version: 9.3(8)
+
+    - name: mpls-hub-1
+      role: mpls_hub
+      device_type: asr_1000
+      location: us-east-1
+      base_cpu: 40.0
+      base_memory: 50.0
+      base_process_count: 95
+      base_interrupt_rate: 8000.0
+      cpu_temp_alpha: 3.0
+      memory_gamma_process: 0.12
+      memory_gamma_cpu: 0.08
+      interrupt_beta: 0.010
+      os: ios_xe
+      software_version: 17.6.2
+
+    - name: branch-1
+      role: branch
+      device_type: isr_4451
+      location: us-west-1
+      base_cpu: 25.0
+      base_memory: 35.0
+      base_process_count: 55
+      base_interrupt_rate: 2000.0
+      cpu_temp_alpha: 2.0
+      memory_gamma_process: 0.10
+      memory_gamma_cpu: 0.06
+      interrupt_beta: 0.005
+      os: ios_xe
+      software_version: 17.3.3
+
+    - name: branch-2
+      role: branch
+      device_type: isr_4451
+      location: us-west-2
+      base_cpu: 25.0
+      base_memory: 35.0
+      base_process_count: 55
+      base_interrupt_rate: 2000.0
+      cpu_temp_alpha: 2.0
+      memory_gamma_process: 0.10
+      memory_gamma_cpu: 0.06
+      interrupt_beta: 0.005
+      os: ios_xe
+      software_version: 17.3.3
+
+    - name: branch-3
+      role: branch
+      device_type: isr_4451
+      location: eu-west-1
+      base_cpu: 25.0
+      base_memory: 35.0
+      base_process_count: 55
+      base_interrupt_rate: 2000.0
+      cpu_temp_alpha: 2.0
+      memory_gamma_process: 0.10
+      memory_gamma_cpu: 0.06
+      interrupt_beta: 0.005
+      os: ios_xe
+      software_version: 17.3.3
+
+    - name: branch-4
+      role: branch
+      device_type: isr_4451
+      location: eu-west-2
+      base_cpu: 25.0
+      base_memory: 35.0
+      base_process_count: 55
+      base_interrupt_rate: 2000.0
+      cpu_temp_alpha: 2.0
+      memory_gamma_process: 0.10
+      memory_gamma_cpu: 0.06
+      interrupt_beta: 0.005
+      os: ios_xe
+      software_version: 17.3.3
+
+  links:
+    - source: datacenter-1
+      target: mpls-hub-1
+      type: mpls_core
+      bandwidth_mbps: 10000.0
+      base_latency_ms: 1.0
+      base_jitter_ms: 0.1
+      base_packet_loss: 0.0001
+      mtu: 1500
+
+    - source: mpls-hub-1
+      target: branch-1
+      type: mpls_access
+      bandwidth_mbps: 1000.0
+      base_latency_ms: 15.0
+      base_jitter_ms: 0.5
+      base_packet_loss: 0.0005
+      mtu: 1500
+
+    - source: mpls-hub-1
+      target: branch-2
+      type: mpls_access
+      bandwidth_mbps: 1000.0
+      base_latency_ms: 12.0
+      base_jitter_ms: 0.4
+      base_packet_loss: 0.0005
+      mtu: 1500
+
+    - source: mpls-hub-1
+      target: branch-3
+      type: mpls_access
+      bandwidth_mbps: 500.0
+      base_latency_ms: 45.0
+      base_jitter_ms: 1.2
+      base_packet_loss: 0.0010
+      mtu: 1500
+
+    - source: mpls-hub-1
+      target: branch-4
+      type: mpls_access
+      bandwidth_mbps: 500.0
+      base_latency_ms: 50.0
+      base_jitter_ms: 1.5
+      base_packet_loss: 0.0010
+      mtu: 1500
+
+    - source: branch-1
+      target: branch-2
+      type: sdwan_overlay
+      bandwidth_mbps: 200.0
+      base_latency_ms: 25.0
+      base_jitter_ms: 2.0
+      base_packet_loss: 0.002
+      mtu: 1400
+
+    - source: branch-3
+      target: branch-4
+      type: sdwan_overlay
+      bandwidth_mbps: 200.0
+      base_latency_ms: 30.0
+      base_jitter_ms: 2.5
+      base_packet_loss: 0.002
+      mtu: 1400
+
+  tunnels:
+    - name: ipsec-dc-to-hub
+      source: datacenter-1
+      target: mpls-hub-1
+      type: ipsec
+      base_latency_ms: 2.0
+      base_jitter_ms: 0.2
+      base_packet_loss: 0.0002
+
+    - name: ipsec-hub-to-branch1
+      source: mpls-hub-1
+      target: branch-1
+      type: ipsec
+      base_latency_ms: 16.0
+      base_jitter_ms: 0.8
+      base_packet_loss: 0.0008
+
+    - name: ipsec-hub-to-branch2
+      source: mpls-hub-1
+      target: branch-2
+      type: ipsec
+      base_latency_ms: 13.0
+      base_jitter_ms: 0.6
+      base_packet_loss: 0.0008
+
+    - name: ipsec-hub-to-branch3
+      source: mpls-hub-1
+      target: branch-3
+      type: ipsec
+      base_latency_ms: 48.0
+      base_jitter_ms: 1.8
+      base_packet_loss: 0.0015
+
+    - name: ipsec-hub-to-branch4
+      source: mpls-hub-1
+      target: branch-4
+      type: ipsec
+      base_latency_ms: 53.0
+      base_jitter_ms: 2.0
+      base_packet_loss: 0.0015
+
+correlation_coefficients:
+  cpu_temperature_base: 45.0
+  cpu_temperature_coefficient: 2.5
+  memory_interrupt_coefficient: 0.05
+  queue_length_capacity_ratio: 0.8

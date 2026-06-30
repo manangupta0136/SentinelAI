@@ -1,0 +1,163 @@
+2026-06-30 20:41:38,376 | INFO     | __main__ | ============================================================
+2026-06-30 20:41:38,376 | INFO     | __main__ | SentinelAI Network Simulation Engine
+2026-06-30 20:41:38,376 | INFO     | __main__ | ============================================================
+2026-06-30 20:41:38,376 | INFO     | __main__ | Config dir: /Users/aadvikchaturvedi/SentinelAI/network_simulation/config
+2026-06-30 20:41:38,376 | INFO     | __main__ | Output dir: /Users/aadvikchaturvedi/SentinelAI/network_simulation/output
+2026-06-30 20:41:38,385 | INFO     | network_simulation.topology.network_builder | Network built: 6 devices, 7 links, 5 tunnels
+2026-06-30 20:41:38,389 | INFO     | __main__ | Registered 9 fault injectors
+2026-06-30 20:41:38,389 | INFO     | network_simulation.monte_carlo.simulator | Starting simulation: 10 ticks, interval=60s, seed=42
+2026-06-30 20:41:38,398 | INFO     | network_simulation.telemetry.exporters | Exported 180 telemetry rows to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/telemetry.csv
+2026-06-30 20:41:38,401 | INFO     | network_simulation.telemetry.exporters | Exported 180 telemetry records to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/telemetry.json
+2026-06-30 20:41:38,401 | INFO     | network_simulation.telemetry.exporters | Exported 0 ground truth rows to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/ground_truth.csv
+2026-06-30 20:41:38,402 | INFO     | network_simulation.telemetry.exporters | Exported 0 fault events to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/fault_events.json
+2026-06-30 20:41:38,402 | INFO     | network_simulation.telemetry.exporters | Exported simulation summary to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/simulation_summary.json
+2026-06-30 20:41:38,402 | INFO     | network_simulation.telemetry.exporters | Exported metadata to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/metadata.json
+2026-06-30 20:41:38,402 | INFO     | network_simulation.monte_carlo.simulator | Simulation complete: {'total_ticks': 10, 'tick_interval_seconds': 60, 'total_faults_injected': 0, 'telemetry_records': 180, 'fault_type_counts': {}, 'seed': 42, 'network_devices': 6, 'network_links': 7, 'network_tunnels': 5}
+2026-06-30 20:41:38,402 | INFO     | __main__ | Simulation complete:
+2026-06-30 20:41:38,402 | INFO     | __main__ |   total_ticks: 10
+2026-06-30 20:41:38,402 | INFO     | __main__ |   tick_interval_seconds: 60
+2026-06-30 20:41:38,402 | INFO     | __main__ |   total_faults_injected: 0
+2026-06-30 20:41:38,402 | INFO     | __main__ |   telemetry_records: 180
+2026-06-30 20:41:38,402 | INFO     | __main__ |   fault_type_counts: {}
+2026-06-30 20:41:38,402 | INFO     | __main__ |   seed: 42
+2026-06-30 20:41:38,402 | INFO     | __main__ |   network_devices: 6
+2026-06-30 20:41:38,402 | INFO     | __main__ |   network_links: 7
+2026-06-30 20:41:38,402 | INFO     | __main__ |   network_tunnels: 5
+2026-06-30 20:41:38,402 | INFO     | __main__ | Output files written to: /Users/aadvikchaturvedi/SentinelAI/network_simulation/output
+2026-06-30 20:41:43,089 | INFO     | __main__ | ============================================================
+2026-06-30 20:41:43,089 | INFO     | __main__ | SentinelAI Network Simulation Engine
+2026-06-30 20:41:43,089 | INFO     | __main__ | ============================================================
+2026-06-30 20:41:43,089 | INFO     | __main__ | Config dir: /Users/aadvikchaturvedi/SentinelAI/network_simulation/config
+2026-06-30 20:41:43,089 | INFO     | __main__ | Output dir: /Users/aadvikchaturvedi/SentinelAI/network_simulation/output
+2026-06-30 20:41:43,098 | INFO     | network_simulation.topology.network_builder | Network built: 6 devices, 7 links, 5 tunnels
+2026-06-30 20:41:43,102 | INFO     | __main__ | Registered 9 fault injectors
+2026-06-30 20:41:43,102 | INFO     | network_simulation.monte_carlo.simulator | Starting simulation: 100 ticks, interval=60s, seed=42
+2026-06-30 20:41:43,107 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=tunnel_failure severity=0.36 duration=7 devices=[np.str_('branch-4'), np.str_('mpls-hub-1')]
+2026-06-30 20:41:43,108 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=tunnel_failure event=d37ca0b242894f43 method=automatic
+2026-06-30 20:41:43,114 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=tunnel_failure severity=0.72 duration=38 devices=[np.str_('datacenter-1')]
+2026-06-30 20:41:43,139 | INFO     | network_simulation.telemetry.exporters | Exported 1800 telemetry rows to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/telemetry.csv
+2026-06-30 20:41:43,166 | INFO     | network_simulation.telemetry.exporters | Exported 1800 telemetry records to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/telemetry.json
+2026-06-30 20:41:43,168 | INFO     | network_simulation.telemetry.exporters | Exported 1 ground truth rows to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/ground_truth.csv
+2026-06-30 20:41:43,168 | INFO     | network_simulation.telemetry.exporters | Exported 2 fault events to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/fault_events.json
+2026-06-30 20:41:43,168 | INFO     | network_simulation.telemetry.exporters | Exported simulation summary to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/simulation_summary.json
+2026-06-30 20:41:43,168 | INFO     | network_simulation.telemetry.exporters | Exported metadata to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/metadata.json
+2026-06-30 20:41:43,168 | INFO     | network_simulation.monte_carlo.simulator | Simulation complete: {'total_ticks': 100, 'tick_interval_seconds': 60, 'total_faults_injected': 2, 'telemetry_records': 1800, 'fault_type_counts': {'tunnel_failure': 2}, 'seed': 42, 'network_devices': 6, 'network_links': 7, 'network_tunnels': 5}
+2026-06-30 20:41:43,168 | INFO     | __main__ | Simulation complete:
+2026-06-30 20:41:43,168 | INFO     | __main__ |   total_ticks: 100
+2026-06-30 20:41:43,168 | INFO     | __main__ |   tick_interval_seconds: 60
+2026-06-30 20:41:43,168 | INFO     | __main__ |   total_faults_injected: 2
+2026-06-30 20:41:43,168 | INFO     | __main__ |   telemetry_records: 1800
+2026-06-30 20:41:43,168 | INFO     | __main__ |   fault_type_counts: {'tunnel_failure': 2}
+2026-06-30 20:41:43,168 | INFO     | __main__ |   seed: 42
+2026-06-30 20:41:43,168 | INFO     | __main__ |   network_devices: 6
+2026-06-30 20:41:43,168 | INFO     | __main__ |   network_links: 7
+2026-06-30 20:41:43,168 | INFO     | __main__ |   network_tunnels: 5
+2026-06-30 20:41:43,169 | INFO     | __main__ | Output files written to: /Users/aadvikchaturvedi/SentinelAI/network_simulation/output
+2026-06-30 20:45:52,517 | INFO     | __main__ | ============================================================
+2026-06-30 20:45:52,517 | INFO     | __main__ | SentinelAI Network Simulation Engine
+2026-06-30 20:45:52,517 | INFO     | __main__ | ============================================================
+2026-06-30 20:45:52,517 | INFO     | __main__ | Config dir: /Users/aadvikchaturvedi/SentinelAI/network_simulation/config
+2026-06-30 20:45:52,517 | INFO     | __main__ | Output dir: /Users/aadvikchaturvedi/SentinelAI/network_simulation/output
+2026-06-30 20:45:52,527 | INFO     | network_simulation.topology.network_builder | Network built: 6 devices, 7 links, 5 tunnels
+2026-06-30 20:45:52,532 | INFO     | __main__ | Registered 9 fault injectors
+2026-06-30 20:45:52,532 | INFO     | network_simulation.monte_carlo.simulator | Starting simulation: 10 ticks, interval=60s, seed=42
+2026-06-30 20:45:52,539 | INFO     | network_simulation.telemetry.exporters | Exported 180 telemetry rows to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/telemetry.csv
+2026-06-30 20:45:52,542 | INFO     | network_simulation.telemetry.exporters | Exported 180 telemetry records to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/telemetry.json
+2026-06-30 20:45:52,543 | INFO     | network_simulation.telemetry.exporters | Exported 0 ground truth rows to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/ground_truth.csv
+2026-06-30 20:45:52,543 | INFO     | network_simulation.telemetry.exporters | Exported 0 fault events to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/fault_events.json
+2026-06-30 20:45:52,543 | INFO     | network_simulation.telemetry.exporters | Exported simulation summary to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/simulation_summary.json
+2026-06-30 20:45:52,543 | INFO     | network_simulation.telemetry.exporters | Exported metadata to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/metadata.json
+2026-06-30 20:45:52,543 | INFO     | network_simulation.monte_carlo.simulator | Simulation complete: {'total_ticks': 10, 'tick_interval_seconds': 60, 'total_faults_injected': 0, 'telemetry_records': 180, 'fault_type_counts': {}, 'seed': 42, 'network_devices': 6, 'network_links': 7, 'network_tunnels': 5}
+2026-06-30 20:45:52,543 | INFO     | __main__ | Simulation complete:
+2026-06-30 20:45:52,543 | INFO     | __main__ |   total_ticks: 10
+2026-06-30 20:45:52,543 | INFO     | __main__ |   tick_interval_seconds: 60
+2026-06-30 20:45:52,543 | INFO     | __main__ |   total_faults_injected: 0
+2026-06-30 20:45:52,543 | INFO     | __main__ |   telemetry_records: 180
+2026-06-30 20:45:52,544 | INFO     | __main__ |   fault_type_counts: {}
+2026-06-30 20:45:52,544 | INFO     | __main__ |   seed: 42
+2026-06-30 20:45:52,544 | INFO     | __main__ |   network_devices: 6
+2026-06-30 20:45:52,544 | INFO     | __main__ |   network_links: 7
+2026-06-30 20:45:52,544 | INFO     | __main__ |   network_tunnels: 5
+2026-06-30 20:45:52,544 | INFO     | __main__ | Output files written to: /Users/aadvikchaturvedi/SentinelAI/network_simulation/output
+2026-06-30 20:46:02,601 | INFO     | __main__ | ============================================================
+2026-06-30 20:46:02,601 | INFO     | __main__ | SentinelAI Network Simulation Engine
+2026-06-30 20:46:02,601 | INFO     | __main__ | ============================================================
+2026-06-30 20:46:02,601 | INFO     | __main__ | Config dir: /Users/aadvikchaturvedi/SentinelAI/network_simulation/config
+2026-06-30 20:46:02,601 | INFO     | __main__ | Output dir: /Users/aadvikchaturvedi/SentinelAI/network_simulation/output
+2026-06-30 20:46:02,610 | INFO     | network_simulation.topology.network_builder | Network built: 6 devices, 7 links, 5 tunnels
+2026-06-30 20:46:02,615 | INFO     | __main__ | Registered 9 fault injectors
+2026-06-30 20:46:02,615 | INFO     | network_simulation.monte_carlo.simulator | Starting simulation: 1440 ticks, interval=60s, seed=42
+2026-06-30 20:46:02,621 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=tunnel_failure severity=0.36 duration=7 devices=[np.str_('branch-4'), np.str_('mpls-hub-1')]
+2026-06-30 20:46:02,622 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=tunnel_failure event=d44038c588554142 method=automatic
+2026-06-30 20:46:02,629 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=tunnel_failure severity=0.72 duration=38 devices=[np.str_('datacenter-1')]
+2026-06-30 20:46:02,635 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=tunnel_failure event=9cd80a15be4147b7 method=automatic
+2026-06-30 20:46:02,637 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=congestion severity=0.33 duration=5 devices=[np.str_('branch-2'), np.str_('datacenter-1')]
+2026-06-30 20:46:02,638 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=congestion event=a900cb0bace24cd7 method=automatic
+2026-06-30 20:46:02,642 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=congestion severity=0.52 duration=120 devices=[np.str_('branch-2'), np.str_('mpls-hub-1')]
+2026-06-30 20:46:02,652 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=mpls_failure severity=0.31 duration=24 devices=[np.str_('mpls-hub-1')]
+2026-06-30 20:46:02,656 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=mpls_failure event=d60f48b864654d46 method=manual
+2026-06-30 20:46:02,657 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=bgp_flap severity=0.62 duration=5 devices=[np.str_('branch-3')]
+2026-06-30 20:46:02,658 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=bgp_flap event=1b5eded2c6e240c6 method=manual_route_policy_change
+2026-06-30 20:46:02,660 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=packet_loss_escalation severity=0.48 duration=58 devices=[np.str_('datacenter-1'), np.str_('branch-2'), np.str_('branch-3')]
+2026-06-30 20:46:02,664 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=congestion event=aed7ebaea21040b8 method=manual_traffic_engineering
+2026-06-30 20:46:02,670 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=packet_loss_escalation event=9b43390ec1484384 method=automatic
+2026-06-30 20:46:02,701 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=tunnel_failure severity=0.60 duration=13 devices=[np.str_('branch-4'), np.str_('branch-1'), np.str_('datacenter-1')]
+2026-06-30 20:46:02,703 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=tunnel_failure event=e781c47bd24c4595 method=automatic
+2026-06-30 20:46:02,706 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=bgp_flap severity=0.65 duration=29 devices=[np.str_('mpls-hub-1'), np.str_('branch-3')]
+2026-06-30 20:46:02,708 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=bgp_flap severity=0.38 duration=10 devices=[np.str_('mpls-hub-1'), np.str_('branch-2')]
+2026-06-30 20:46:02,710 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=bgp_flap event=367a7d6a5dd0432a method=automatic
+2026-06-30 20:46:02,712 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=bgp_flap event=fba6e979df854b89 method=automatic
+2026-06-30 20:46:02,713 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=congestion severity=0.51 duration=24 devices=[np.str_('branch-1')]
+2026-06-30 20:46:02,717 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=congestion event=1028897975a64c87 method=automatic
+2026-06-30 20:46:02,718 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=bgp_flap severity=0.40 duration=9 devices=[np.str_('branch-4'), np.str_('branch-2')]
+2026-06-30 20:46:02,719 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=bgp_flap event=b8984348d2334a05 method=automatic
+2026-06-30 20:46:02,724 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=link_failure severity=0.65 duration=8 devices=[np.str_('branch-4'), np.str_('branch-2'), np.str_('mpls-hub-1')]
+2026-06-30 20:46:02,724 | WARNING  | network_simulation.monte_carlo.simulator | No injector registered for fault type: link_failure
+2026-06-30 20:46:02,727 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=packet_loss_escalation severity=0.67 duration=13 devices=[np.str_('branch-4'), np.str_('branch-1'), np.str_('branch-2')]
+2026-06-30 20:46:02,729 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=packet_loss_escalation event=5a2c5ae60d38408f method=manual_interface_clean
+2026-06-30 20:46:02,730 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=tunnel_failure severity=0.34 duration=120 devices=[np.str_('branch-4'), np.str_('branch-3'), np.str_('branch-2')]
+2026-06-30 20:46:02,746 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=cpu_overload severity=0.41 duration=23 devices=[np.str_('mpls-hub-1'), np.str_('branch-1'), np.str_('branch-4')]
+2026-06-30 20:46:02,750 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=tunnel_failure event=871bd792b4154499 method=manual_tunnel_rekey
+2026-06-30 20:46:02,750 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=cpu_overload event=7f6a332d30474105 method=manual_reload
+2026-06-30 20:46:02,751 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=controller_error severity=0.56 duration=26 devices=[np.str_('branch-1')]
+2026-06-30 20:46:02,755 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=controller_error event=3dc934aa41a44820 method=manual_config_push
+2026-06-30 20:46:02,762 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=bgp_flap severity=0.37 duration=84 devices=[np.str_('branch-4')]
+2026-06-30 20:46:02,775 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=bgp_flap event=20b9988337a5425f method=automatic
+2026-06-30 20:46:02,784 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=bgp_flap severity=0.54 duration=5 devices=[np.str_('branch-2'), np.str_('mpls-hub-1')]
+2026-06-30 20:46:02,785 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=bgp_flap event=3116f362e4d34f78 method=automatic
+2026-06-30 20:46:02,786 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=tunnel_failure severity=0.32 duration=120 devices=[np.str_('datacenter-1')]
+2026-06-30 20:46:02,803 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=packet_loss_escalation severity=0.34 duration=49 devices=[np.str_('mpls-hub-1'), np.str_('datacenter-1')]
+2026-06-30 20:46:02,806 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=controller_error severity=0.52 duration=5 devices=[np.str_('branch-2')]
+2026-06-30 20:46:02,806 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=tunnel_failure event=169780426b1d4ee9 method=automatic
+2026-06-30 20:46:02,806 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=controller_error event=e0129ca3e562447a method=automatic_rollback
+2026-06-30 20:46:02,811 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=packet_loss_escalation event=037765e975a9424f method=automatic
+2026-06-30 20:46:02,847 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=tunnel_failure severity=0.33 duration=9 devices=[np.str_('datacenter-1')]
+2026-06-30 20:46:02,848 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=tunnel_failure event=a60f435700dd42ba method=manual_tunnel_rekey
+2026-06-30 20:46:02,851 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=mpls_failure severity=0.34 duration=24 devices=[np.str_('branch-1'), np.str_('mpls-hub-1'), np.str_('datacenter-1')]
+2026-06-30 20:46:02,853 | INFO     | network_simulation.monte_carlo.scheduler | Fault scheduled: type=memory_exhaustion severity=0.70 duration=13 devices=[np.str_('mpls-hub-1'), np.str_('branch-4')]
+2026-06-30 20:46:02,855 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=mpls_failure event=4e286104b6cc4d6e method=automatic_lsp_reroute
+2026-06-30 20:46:02,855 | INFO     | network_simulation.fault_injection.recovery | Recovery complete: type=memory_exhaustion event=475e8295feef4b50 method=automatic_gc
+2026-06-30 20:46:03,077 | INFO     | network_simulation.telemetry.exporters | Exported 25920 telemetry rows to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/telemetry.csv
+2026-06-30 20:46:03,475 | INFO     | network_simulation.telemetry.exporters | Exported 25920 telemetry records to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/telemetry.json
+2026-06-30 20:46:03,480 | INFO     | network_simulation.telemetry.exporters | Exported 24 ground truth rows to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/ground_truth.csv
+2026-06-30 20:46:03,480 | INFO     | network_simulation.telemetry.exporters | Exported 24 fault events to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/fault_events.json
+2026-06-30 20:46:03,480 | INFO     | network_simulation.telemetry.exporters | Exported simulation summary to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/simulation_summary.json
+2026-06-30 20:46:03,481 | INFO     | network_simulation.telemetry.exporters | Exported metadata to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/metadata.json
+2026-06-30 20:46:03,481 | INFO     | network_simulation.monte_carlo.simulator | Simulation complete: {'total_ticks': 1440, 'tick_interval_seconds': 60, 'total_faults_injected': 24, 'telemetry_records': 25920, 'fault_type_counts': {'tunnel_failure': 6, 'congestion': 3, 'mpls_failure': 2, 'bgp_flap': 6, 'packet_loss_escalation': 3, 'cpu_overload': 1, 'controller_error': 2, 'memory_exhaustion': 1}, 'seed': 42, 'network_devices': 6, 'network_links': 7, 'network_tunnels': 5}
+2026-06-30 20:46:03,481 | INFO     | __main__ | Simulation complete:
+2026-06-30 20:46:03,481 | INFO     | __main__ |   total_ticks: 1440
+2026-06-30 20:46:03,481 | INFO     | __main__ |   tick_interval_seconds: 60
+2026-06-30 20:46:03,481 | INFO     | __main__ |   total_faults_injected: 24
+2026-06-30 20:46:03,481 | INFO     | __main__ |   telemetry_records: 25920
+2026-06-30 20:46:03,481 | INFO     | __main__ |   fault_type_counts: {'tunnel_failure': 6, 'congestion': 3, 'mpls_failure': 2, 'bgp_flap': 6, 'packet_loss_escalation': 3, 'cpu_overload': 1, 'controller_error': 2, 'memory_exhaustion': 1}
+2026-06-30 20:46:03,481 | INFO     | __main__ |   seed: 42
+2026-06-30 20:46:03,481 | INFO     | __main__ |   network_devices: 6
+2026-06-30 20:46:03,481 | INFO     | __main__ |   network_links: 7
+2026-06-30 20:46:03,481 | INFO     | __main__ |   network_tunnels: 5
+2026-06-30 20:46:03,539 | INFO     | network_simulation.visualization.topology_plot | Topology plot saved to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/topology.png
+2026-06-30 20:46:03,539 | INFO     | __main__ | Topology plot saved to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/topology.png
+2026-06-30 20:46:04,021 | INFO     | network_simulation.visualization.telemetry_dashboard | Telemetry dashboard saved to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/telemetry_dashboard.png
+2026-06-30 20:46:04,021 | INFO     | __main__ | Telemetry dashboard saved to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/telemetry_dashboard.png
+2026-06-30 20:46:04,179 | INFO     | network_simulation.visualization.fault_timeline | Fault timeline saved to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/fault_timeline.png
+2026-06-30 20:46:04,179 | INFO     | __main__ | Fault timeline saved to /Users/aadvikchaturvedi/SentinelAI/network_simulation/output/fault_timeline.png
+2026-06-30 20:46:04,182 | INFO     | __main__ | Output files written to: /Users/aadvikchaturvedi/SentinelAI/network_simulation/output

@@ -1,0 +1,20 @@
+{
+  "total_ticks": 1440,
+  "tick_interval_seconds": 60,
+  "total_faults_injected": 24,
+  "telemetry_records": 25920,
+  "fault_type_counts": {
+    "tunnel_failure": 6,
+    "congestion": 3,
+    "mpls_failure": 2,
+    "bgp_flap": 6,
+    "packet_loss_escalation": 3,
+    "cpu_overload": 1,
+    "controller_error": 2,
+    "memory_exhaustion": 1
+  },
+  "seed": 42,
+  "network_devices": 6,
+  "network_links": 7,
+  "network_tunnels": 5
+}

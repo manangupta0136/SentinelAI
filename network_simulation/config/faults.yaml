@@ -1,0 +1,154 @@
+# Fault injection configuration for Monte Carlo simulation.
+
+monte_carlo:
+  fault_probability_per_tick: 0.02
+  max_concurrent_faults: 3
+  min_ticks_between_faults: 10
+  fault_type_weights:
+    congestion: 0.20
+    bgp_flap: 0.10
+    ospf_failure: 0.10
+    tunnel_failure: 0.12
+    mpls_failure: 0.08
+    link_failure: 0.05
+    controller_error: 0.10
+    cpu_overload: 0.10
+    memory_exhaustion: 0.08
+    packet_loss_escalation: 0.07
+
+distributions:
+  severity:
+    type: beta
+    params:
+      alpha: 2.0
+      beta: 5.0
+    scale_min: 0.3
+    scale_max: 1.0
+  duration_ticks:
+    type: lognormal
+    params:
+      mean: 3.0
+      sigma: 1.0
+    min: 5
+    max: 120
+  device_selection:
+    type: uniform
+    count_min: 1
+    count_max: 3
+
+fault_types:
+  congestion:
+    enabled: true
+    severity_range: [0.3, 1.0]
+    duration_range_ticks: [5, 60]
+    bandwidth_reduction_range: [0.2, 0.9]
+    latency_multiplier_range: [1.5, 5.0]
+    jitter_multiplier_range: [2.0, 8.0]
+    loss_increase_range: [0.001, 0.05]
+    recovery_methods:
+      - automatic
+      - manual_traffic_engineering
+      - automatic
+
+  bgp_flap:
+    enabled: true
+    severity_range: [0.4, 0.9]
+    duration_range_ticks: [10, 80]
+    flap_interval_range_ticks: [1, 5]
+    prefix_withdrawal_rate: [0.1, 0.5]
+    route_convergence_delay_ticks: [3, 15]
+    recovery_methods:
+      - automatic
+      - automatic
+      - manual_route_policy_change
+
+  ospf_failure:
+    enabled: true
+    severity_range: [0.3, 0.8]
+    duration_range_ticks: [10, 60]
+    lsa_throttle_rate: [0.5, 2.0]
+    adjacency_flap_probability: [0.1, 0.4]
+    spf_interval_multiplier: [2.0, 10.0]
+    recovery_methods:
+      - automatic
+      - manual_interface_reset
+
+  tunnel_failure:
+    enabled: true
+    severity_range: [0.2, 0.9]
+    duration_range_ticks: [8, 90]
+    latency_increase_range: [1.5, 10.0]
+    jitter_increase_range: [2.0, 15.0]
+    loss_increase_range: [0.002, 0.08]
+    throughput_reduction_range: [0.1, 0.7]
+    recovery_methods:
+      - automatic
+      - automatic
+      - manual_tunnel_rekey
+
+  mpls_failure:
+    enabled: true
+    severity_range: [0.3, 0.9]
+    duration_range_ticks: [10, 100]
+    label_switching_delay_multiplier: [2.0, 8.0]
+    lsp_degradation: [0.2, 0.8]
+    vpn_route_withdrawal: [0.1, 0.4]
+    recovery_methods:
+      - automatic_lsp_reroute
+      - manual
+
+  link_failure:
+    enabled: true
+    severity_range: [0.7, 1.0]
+    duration_range_ticks: [15, 120]
+    failure_type_probabilities:
+      partial: 0.3
+      complete: 0.7
+    recovery_methods:
+      - automatic_restoration
+      - manual_repair
+      - redundant_path_switch
+
+  controller_error:
+    enabled: true
+    severity_range: [0.2, 0.7]
+    duration_range_ticks: [5, 40]
+    misconfiguration_impact: [0.2, 0.6]
+    policy_violation_rate: [0.1, 0.5]
+    intent_mismatch_probability: [0.3, 0.7]
+    recovery_methods:
+      - automatic_rollback
+      - manual_config_push
+
+  cpu_overload:
+    enabled: true
+    severity_range: [0.4, 1.0]
+    duration_range_ticks: [5, 50]
+    cpu_increase_range: [20.0, 80.0]
+    temp_increase_coefficient: [1.5, 3.0]
+    process_spike_count: [30, 150]
+    interrupt_spike_rate: [2000.0, 10000.0]
+    recovery_methods:
+      - automatic_process_termination
+      - manual_reload
+
+  memory_exhaustion:
+    enabled: true
+    severity_range: [0.3, 0.9]
+    duration_range_ticks: [10, 70]
+    memory_increase_range: [15.0, 60.0]
+    process_leak_count: [20, 100]
+    recovery_methods:
+      - automatic_gc
+      - manual_reload
+      - automatic_gc
+
+  packet_loss_escalation:
+    enabled: true
+    severity_range: [0.3, 1.0]
+    duration_range_ticks: [8, 80]
+    loss_base_increase: [0.005, 0.10]
+    loss_escalation_rate: [0.001, 0.02]
+    recovery_methods:
+      - automatic
+      - manual_interface_clean
