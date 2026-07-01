@@ -5,10 +5,4 @@ networkx
 qdrant-client
 sentence-transformers
 pandas
-numpy
-httpx
-python-dotenv
-aiosqlite
-databases
-sqlalchemy
 pydantic

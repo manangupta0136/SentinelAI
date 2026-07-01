@@ -23,7 +23,6 @@ from failure_workers import (
 from supervisor.confidence_gate import pick_highest
 
 
-# Instantiate all workers once
 _signal_workers = [
     LatencyWorker(),
     BandwidthWorker(),
@@ -47,13 +46,8 @@ def run_pipeline(telemetry: dict) -> dict:
     Run the full signal → failure → gate pipeline for one telemetry snapshot.
     Returns the gated failure prediction + all signal worker outputs.
     """
-    # Step 1: Run all signal workers
     signal_outputs = [w.run(telemetry) for w in _signal_workers]
-
-    # Step 2: Run all failure workers
     failure_outputs = [w.run(signal_outputs) for w in _failure_workers]
-
-    # Step 3: Confidence gate — pick best failure prediction
     gated = pick_highest(failure_outputs)
 
     return {

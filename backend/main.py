@@ -23,37 +23,26 @@ from llm.inference import query_llm, query_chat
 from telemetry.synthetic import generate_all_locations, inject_fault, clear_fault, active_faults
 from database.db import init_db, log_prediction, log_fault, log_chat, get_recent_predictions
 
-# -------------------------------------------------------
 app = FastAPI(title="Air-Gapped NOC Copilot", version="1.0.0")
 
-# Init on startup
 init_db()
 graph_engine = GraphEngine()
 rag_engine = get_rag_engine()
 
-# Serve frontend static files
 FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend")
 app.mount("/static", StaticFiles(directory=os.path.join(FRONTEND_DIR, "static")), name="static")
 
-
-# -------------------------------------------------------
-# REQUEST MODELS
-# -------------------------------------------------------
 
 class ChatRequest(BaseModel):
     question: str
 
 class FaultRequest(BaseModel):
-    fault_type: str   # congestion | tunnel_failure | high_cpu | bgp_flap | mpls_failure
-    location: str     # Hub | Branch1 | Branch2 | Branch3 | Datacenter
+    fault_type: str
+    location: str
 
 class ClearFaultRequest(BaseModel):
     location: str
 
-
-# -------------------------------------------------------
-# ROUTES
-# -------------------------------------------------------
 
 @app.get("/")
 def serve_dashboard():
@@ -113,7 +102,6 @@ def predict():
     if not all_results:
         return {"status": "healthy", "predictions": [], "timestamp": datetime.utcnow().isoformat()}
 
-    # Sort by confidence descending
     all_results.sort(key=lambda x: x["confidence"], reverse=True)
     return {"status": "alert", "predictions": all_results, "timestamp": datetime.utcnow().isoformat()}
 
@@ -121,7 +109,6 @@ def predict():
 @app.post("/api/chat")
 def chat(req: ChatRequest):
     """Copilot chat — answer an operator's question."""
-    # Get current context
     snapshots = generate_all_locations()
     best_context = {"failure": "None", "location": "Unknown", "graph": {}}
 

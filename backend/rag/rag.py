@@ -13,9 +13,6 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
 from sentence_transformers import SentenceTransformer
 
-# -------------------------------------------------------
-# Paths
-# -------------------------------------------------------
 DATA_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "data"
@@ -26,13 +23,13 @@ SOPS_DIR      = os.path.join(DATA_DIR, "sops")
 INCIDENTS_DIR = os.path.join(DATA_DIR, "incidents")
 
 COLLECTION_NAME = "knowledge_base"
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # Small, fast, runs offline after first download
+EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
 
 class RAGEngine:
 
     def __init__(self):
-        self.client = QdrantClient(":memory:")  # In-memory — no server needed
+        self.client = QdrantClient(":memory:")
         self.model = SentenceTransformer(EMBEDDING_MODEL)
         self._ingested = False
 
@@ -93,9 +90,9 @@ class RAGEngine:
 
         query_vector = self.model.encode(failure).tolist()
 
-        results = self.client.search(
+        results = self.client.query_points(
             collection_name=COLLECTION_NAME,
-            query_vector=query_vector,
+            query=query_vector,
             limit=top_k,
         )
 
@@ -103,7 +100,7 @@ class RAGEngine:
         sop = ""
         incident = ""
 
-        for r in results:
+        for r in results.points:
             doc_type = r.payload.get("type", "")
             text = r.payload.get("text", "")
             if doc_type == "runbook" and not runbook:

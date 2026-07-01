@@ -69,7 +69,6 @@ class LatencyWorker:
         }
 
     def postprocess(self, result: dict) -> dict:
-        # Round confidence to 1 decimal
         result["confidence"] = round(result["confidence"], 1)
         return result
 

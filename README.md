@@ -16,16 +16,37 @@ ollama serve
 pip install -r requirements.txt
 ```
 
-### 3. Run the backend
+### 3. Run the backend (choose one)
 ```bash
 cd backend
 python main.py
+```
+or
+```bash
+cd backend
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 ### 4. Open the dashboard
 ```
 http://localhost:8000
 ```
+
+---
+
+## Fault Injection
+
+The dashboard provides 5 fault injection buttons, each simulating a different network issue:
+
+| Button | Backend Fault | Effect |
+|---|---|---|
+| Inject Congestion | `congestion` | High latency, low bandwidth |
+| Inject Tunnel Failure | `tunnel_failure` | Tunnel latency spikes, packet loss |
+| Inject CPU Spike | `high_cpu` | CPU utilization > 90% |
+| Inject BGP Flap | `bgp_flap` | BGP event storm, routing instability |
+| Inject MPLS Failure | `mpls_failure` | Widespread latency + packet loss |
+
+Each fault can be applied to any location (Hub, Branch1-3, Datacenter). Click **Clear All Faults** or a per-location clear button to reset.
 
 ---
 
@@ -59,7 +80,7 @@ Synthetic Telemetry
 ```
 backend/
   main.py                  — FastAPI app
-  supervisor/supervisor.py — Pipeline orchestrator
+  supervisor/              — Pipeline orchestrator + confidence gate
   workers/                 — Signal workers (one per metric)
   failure_workers/         — Failure detection workers
   graph/graph.py           — Network topology + impact analysis

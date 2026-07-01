@@ -5,7 +5,6 @@ from datetime import datetime
 
 LOCATIONS = ["Hub", "Branch1", "Branch2", "Branch3", "Datacenter"]
 
-# Normal baseline ranges per metric
 BASELINES = {
     "latency_ms": (10, 30),
     "bandwidth_mbps": (60, 90),
@@ -18,7 +17,6 @@ BASELINES = {
     "tunnel_packet_loss_pct": (0.0, 0.5),
 }
 
-# Fault profiles — injected to simulate failures
 FAULT_PROFILES = {
     "congestion": {
         "latency_ms": (80, 200),
@@ -49,17 +47,14 @@ active_faults = {}
 
 
 def inject_fault(fault_type: str, location: str):
-    """Called by fault injector to simulate a fault."""
     active_faults[location] = fault_type
 
 
 def clear_fault(location: str):
-    """Clear an active fault."""
     active_faults.pop(location, None)
 
 
 def generate_telemetry(location: str = None) -> dict:
-    """Generate one telemetry snapshot for a given location."""
     if location is None:
         location = random.choice(LOCATIONS)
 
@@ -81,12 +76,10 @@ def generate_telemetry(location: str = None) -> dict:
 
 
 def generate_all_locations() -> list:
-    """Generate telemetry for every location at once."""
     return [generate_telemetry(loc) for loc in LOCATIONS]
 
 
 def generate_history(location: str, steps: int = 20) -> list:
-    """Generate a time series of telemetry snapshots for a location."""
     history = []
     for i in range(steps):
         snap = generate_telemetry(location)
@@ -95,6 +88,5 @@ def generate_history(location: str, steps: int = 20) -> list:
 
 
 if __name__ == "__main__":
-    # Quick test
     snap = generate_telemetry("Hub")
     print(snap)
