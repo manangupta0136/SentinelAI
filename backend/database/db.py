@@ -23,7 +23,6 @@ def get_connection():
 
 
 def init_db():
-    """Create all tables if they don't exist."""
     conn = get_connection()
     c = conn.cursor()
 

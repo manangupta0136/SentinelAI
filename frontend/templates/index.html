@@ -1,125 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Air-Gapped NOC Copilot</title>
-  <link rel="stylesheet" href="/static/css/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Air-Gapped MPLS Copilot</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header>
-    <div class="header-left">
-      <span class="logo">⚡ NOC Copilot</span>
-      <span class="subtitle">Air-Gapped Predictive Intelligence</span>
-    </div>
-    <div class="header-right">
-      <span id="status-dot" class="dot green"></span>
-      <span id="status-text">System Online</span>
-      <span id="clock"></span>
-    </div>
-  </header>
-
-  <!-- MAIN GRID -->
-  <div class="grid">
-
-    <!-- LEFT COLUMN -->
-    <div class="col-left">
-
-      <!-- ACTIVE PREDICTIONS -->
-      <div class="card">
-        <div class="card-title">🔴 Active Predictions</div>
-        <div id="predictions-panel">
-          <div class="placeholder">Fetching predictions...</div>
-        </div>
-        <button class="btn btn-primary" onclick="runPredict()">▶ Run Prediction</button>
-      </div>
-
-      <!-- WORKER STATUS -->
-      <div class="card">
-        <div class="card-title">⚙️ Signal Worker Status</div>
-        <div id="worker-panel">
-          <div class="placeholder">Workers idle</div>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-mark"><span></span></div>
+        <div>
+          <p class="eyebrow">Secure NOC Console</p>
+          <h1>Air-Gapped MPLS Predictive Copilot</h1>
         </div>
       </div>
-
-      <!-- TELEMETRY -->
-      <div class="card">
-        <div class="card-title">📊 Live Telemetry</div>
-        <div id="telemetry-panel">
-          <div class="placeholder">Loading telemetry...</div>
-        </div>
-        <button class="btn btn-secondary" onclick="fetchTelemetry()">↻ Refresh</button>
+      <div class="status-strip">
+        <span class="dot"></span>
+        <span id="systemState">System online</span>
+        <span id="clock">--:--</span>
       </div>
+    </header>
 
-    </div>
+    <section class="dashboard-grid">
+      <aside class="column left-column">
+        <section class="panel active-card">
+          <div class="panel-title">
+            <span>Active Prediction</span>
+            <strong id="riskConfidence">--%</strong>
+          </div>
+          <h2 id="riskRoot">Loading...</h2>
+          <p id="riskImpact">Waiting for telemetry.</p>
+          <div class="mini-grid">
+            <div>
+              <span>Impact</span>
+              <strong id="timeImpact">--</strong>
+            </div>
+            <div>
+              <span>Severity</span>
+              <strong id="severity">--</strong>
+            </div>
+          </div>
+        </section>
 
-    <!-- MIDDLE COLUMN -->
-    <div class="col-mid">
+        <section class="panel workers-panel">
+          <div class="panel-title">
+            <span>Prediction Workers</span>
+            <button id="refreshBtn" class="ghost-btn">Refresh</button>
+          </div>
+          <div id="workerList" class="worker-list"></div>
+        </section>
 
-      <!-- NETWORK TOPOLOGY -->
-      <div class="card">
-        <div class="card-title">🌐 Network Topology</div>
-        <div id="topology-panel">
-          <div class="topo-grid" id="topo-grid"></div>
-        </div>
-      </div>
+        <section class="panel telemetry-panel">
+          <div class="panel-title">
+            <span>Telemetry Stream</span>
+            <span class="muted">48 samples</span>
+          </div>
+          <div id="metricTable" class="metric-table"></div>
+        </section>
+      </aside>
 
-      <!-- IMPACT ANALYSIS -->
-      <div class="card">
-        <div class="card-title">💥 Impact Analysis</div>
-        <div id="impact-panel">
-          <div class="placeholder">No active failure</div>
-        </div>
-      </div>
+      <section class="column main-column">
+        <section class="panel topology-panel">
+          <div class="panel-title">
+            <span>Network Topology</span>
+            <span id="scenarioName" class="pill">--</span>
+          </div>
+          <div class="topology-wrap">
+            <canvas id="topologyCanvas" width="900" height="430"></canvas>
+            <div class="topology-badges">
+              <span>MPLS underlay</span>
+              <span>SD-WAN overlay</span>
+              <span>IPSec tunnels</span>
+            </div>
+          </div>
+        </section>
 
-      <!-- REROUTING -->
-      <div class="card">
-        <div class="card-title">🔀 Rerouting</div>
-        <div id="reroute-panel">
-          <div class="placeholder">No rerouting required</div>
-        </div>
-      </div>
+        <section class="panel chart-panel">
+          <div class="panel-title">
+            <span>Projected Metrics</span>
+            <div class="legend" id="chartLegend"></div>
+          </div>
+          <canvas id="metricsCanvas" width="900" height="320"></canvas>
+        </section>
 
-    </div>
+        <section class="panel impact-panel">
+          <div class="panel-title">
+            <span>Impact Analysis</span>
+            <span class="muted">Graph + local RAG</span>
+          </div>
+          <div class="impact-grid">
+            <div>
+              <span>Affected scope</span>
+              <div id="affectedList" class="tag-list"></div>
+            </div>
+            <div>
+              <span>Recommended action</span>
+              <p id="recommendation">--</p>
+            </div>
+          </div>
+        </section>
+      </section>
 
-    <!-- RIGHT COLUMN -->
-    <div class="col-right">
+      <aside class="column right-column">
+        <section class="panel copilot-panel">
+          <div class="panel-title">
+            <span>Copilot</span>
+            <span class="secure-chip">Offline</span>
+          </div>
+          <div id="copilotOutput" class="copilot-output">
+            Ask about likely failure, root cause, affected scope, or action.
+          </div>
+          <form id="copilotForm" class="copilot-form">
+            <input id="copilotInput" type="text" placeholder="Ask the Copilot...">
+            <button type="submit">Send</button>
+          </form>
+          <div class="quick-prompts">
+            <button data-question="What will fail next?">Next failure</button>
+            <button data-question="Why is risk elevated?">Root cause</button>
+            <button data-question="What action should I take?">Action</button>
+          </div>
+        </section>
 
-      <!-- COPILOT CHAT -->
-      <div class="card card-chat">
-        <div class="card-title">🤖 Copilot</div>
-        <div id="chat-messages"></div>
-        <div class="chat-input-row">
-          <input id="chat-input" type="text" placeholder="Ask the Copilot..." 
-                 onkeydown="if(event.key==='Enter') sendChat()" />
-          <button class="btn btn-primary" onclick="sendChat()">Send</button>
-        </div>
-        <div class="quick-questions">
-          <button class="btn btn-ghost" onclick="askQuick('What is likely to fail next?')">What will fail next?</button>
-          <button class="btn btn-ghost" onclick="askQuick('Why is this happening?')">Why is this?</button>
-          <button class="btn btn-ghost" onclick="askQuick('What should I do right now?')">What should I do?</button>
-        </div>
-      </div>
+        <section class="panel injector-panel">
+          <div class="panel-title">
+            <span>Fault Injector</span>
+            <span class="muted">Scenario lab</span>
+          </div>
+          <div class="fault-grid">
+            <button data-scenario="progressive_congestion">Hub Congestion</button>
+            <button data-scenario="bgp_flap">BGP Flap</button>
+            <button data-scenario="tunnel_degradation">Tunnel Degrade</button>
+            <button data-scenario="high_cpu">High CPU</button>
+            <button data-scenario="mpls_failure">MPLS Failure</button>
+            <button data-scenario="normal" class="clear">Clear Faults</button>
+          </div>
+        </section>
 
-      <!-- FAULT INJECTION -->
-      <div class="card">
-        <div class="card-title">🧪 Fault Injector</div>
-        <div class="fault-grid">
-          <button class="btn btn-danger" onclick="injectFault('congestion', 'Hub')">Inject Congestion (Hub)</button>
-          <button class="btn btn-danger" onclick="injectFault('tunnel_failure', 'Branch1')">Inject Tunnel Failure</button>
-          <button class="btn btn-danger" onclick="injectFault('bgp_flap', 'Hub')">Inject BGP Flap</button>
-          <button class="btn btn-danger" onclick="injectFault('high_cpu', 'Datacenter')">Inject High CPU</button>
-          <button class="btn btn-danger" onclick="injectFault('mpls_failure', 'Hub')">Inject MPLS Failure</button>
-          <button class="btn btn-success" onclick="clearAllFaults()">✅ Clear All Faults</button>
-        </div>
-        <div id="fault-status"></div>
-      </div>
-
-    </div>
-  </div>
-
+        <section class="panel knowledge-panel">
+          <div class="panel-title">
+            <span>Retrieved Knowledge</span>
+            <span class="muted">Local only</span>
+          </div>
+          <div id="incidentList" class="incident-list"></div>
+        </section>
+      </aside>
+    </section>
+  </main>
   <script src="/static/js/app.js"></script>
 </body>
 </html>
